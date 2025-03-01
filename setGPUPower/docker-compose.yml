@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    command: python ./src/setGPUPower.py
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
